@@ -21,12 +21,11 @@ pipeline {
         }
 
         stage('Build Frontend') {
-            steps {
-                sh '''
-                docker build \
-                  -t $DOCKER_HUB/$IMAGE_FRONTEND:latest \
-                  ./frontend
-                '''
+    steps {
+        sh '''
+        docker build --no-cache \
+        -t $DOCKER_HUB/$IMAGE_FRONTEND:latest ./frontend
+        '''
             }
         }
 
