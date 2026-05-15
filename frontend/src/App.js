@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function App() {
+  // API Base URL - defaults to /api (proxy through nginx) or environment variable
+  const API_BASE_URL = process.env.REACT_APP_API_URL || window.location.origin;
+
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [cart, setCart] = useState([]);
